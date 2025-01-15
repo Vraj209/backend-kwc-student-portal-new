@@ -1,0 +1,19 @@
+{
+  "name": "kwc-student-portal",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc -b",
+    "start": "tsc -b && node dist/index.js"
+  },
+  "author": "vraj",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@types/express": "^5.0.0",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "prisma": "^6.2.1",
+    "typescript": "^5.7.3"
+  }
+}
