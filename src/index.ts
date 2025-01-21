@@ -5,7 +5,7 @@ dotenv.config();
 const app = express();
 
 app.get("/", (req, res) => {
-  res.send("welcome to student portal baps student added infra");
+  res.send("welcome to student portal baps student added infra updated");
 });
 
 app.listen(process.env.BACKEND_PORT, () => {
