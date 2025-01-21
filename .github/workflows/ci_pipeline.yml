@@ -55,7 +55,7 @@ jobs:
         run: |
           echo "DB_HOST=${{ secrets.DATABASE_URL }}" >> .env
           echo "DB_PORT=${{ secrets.BACKEND_PORT }}" >> .env
-          
+
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
@@ -63,3 +63,11 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/kwcportal:${{github.run_id}}
+
+      - name: Trigger Infrastructure Repo Workflow
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          repository: Vraj209/infra-kwc-portal-new
+          event-type: update-helm-chart
+          token: ${{ secrets.TOKEN }}
+          client-payload: '{"imageTag": "${{ github.run_id }}"}'
